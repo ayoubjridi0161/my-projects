@@ -1,13 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Gameboard from './components/gameboard';
 import reportWebVitals from './reportWebVitals';
-
+import App from './components/app';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Gameboard />
+    <App/>
   </React.StrictMode>
 );
 

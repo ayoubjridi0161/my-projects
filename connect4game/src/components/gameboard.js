@@ -1,7 +1,8 @@
 import React , {useState} from "react";
 import GameCircle from "./gamecircle";
 import '../index.css'
-
+import Header from './header'
+import Footer from './footer'
 const Gameboard = () =>{
     const [gameboard,setgameboard] = useState(Array(16).fill("noplayer"));
     const [turn,setTurn]= useState(1);
@@ -30,14 +31,13 @@ const Gameboard = () =>{
         return  <GameCircle key={id} id={id} circleclick ={circleClicked} className={gameboard[id]} />
     }
     return (
-        <div className="bigcontainer">
-    <div className="showbox">
-        player_1 turn
-    </div>
+    <> 
+    <Header/>
     <div className="gameboard">
         {intiboard()}
     </div>
-    </div>
+    <Footer/>
+    </>
     )
 }
 export default Gameboard
