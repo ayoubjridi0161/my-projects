@@ -3,31 +3,36 @@ import GameCircle from "./gamecircle";
 import '../index.css'
 
 const Gameboard = () =>{
-    const [gameboard,setgameboard] = useState(Array(16).fill("noplayer"));
+    const [gameboard,setgameboard] = useState(Array(16).fill(["noplayer",true]));
     const [turn,setTurn]= useState(1);
     function circleClicked(id) {
-            if (turn === 1){    
-                gameboard[id ] = "player_1";
+        console.log(id);
+        if(gameboard[id][1] === true){
+            const newgameboard = gameboard.slice();
+            if (turn === 1){
+                newgameboard[id]=["player_1",false];
                 setTurn(2);
             }else{
-                gameboard[id]= "player_2"
+                newgameboard[id]=["player_2",false];               
                 setTurn(1);
             }
             
-            setgameboard(gameboard);
+            setgameboard(newgameboard);
             console.log(gameboard);
+
             
         }
-    const intiboard= () =>{
-        let circles=[];
-        for (let i=0;i<16;i++){
+    }
+    function intiboard() {
+        let circles = [];
+        for (let i = 0; i < 16; i++) {
             circles.push(renderCircle(i));
 
         }
         return circles;
     }
     const renderCircle = id =>{
-        return  <GameCircle key={id} id={id} circleclick ={circleClicked} className={gameboard[id]} />
+        return  <GameCircle key={id} id={id} circleclick ={circleClicked} className={gameboard[id][0]} />
     }
     return (
         <div className="bigcontainer">
