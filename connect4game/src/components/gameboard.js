@@ -3,11 +3,12 @@ import GameCircle from "./gamecircle";
 import '../index.css'
 import Header from './header'
 import Footer from './footer'
+import { isWinner } from "../help";
 const Gameboard = () =>{
     const [gameboard,setgameboard] = useState(Array(16).fill("noplayer"));
     const [turn,setTurn]= useState(1);
     function circleClicked(id) {
-            if (turn === 1){    
+        if (turn === 1){    
                 gameboard[id ] = "player_1";
                 setTurn(2);
             }else{
@@ -18,6 +19,9 @@ const Gameboard = () =>{
             setgameboard(gameboard);
             console.log(gameboard);
             
+        if(isWinner(gameboard)){
+            alert("winner");
+        }    
         }
     const intiboard= () =>{
         let circles=[];
@@ -32,7 +36,7 @@ const Gameboard = () =>{
     }
     return (
     <> 
-    <Header/>
+    <Header player={turn}/>
     <div className="gameboard">
         {intiboard()}
     </div>

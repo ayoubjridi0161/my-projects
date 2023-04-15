@@ -1,0 +1,26 @@
+.header {
+    left: 48%;
+    top: 125px;
+    height: 80px;
+    width: 300px;
+    margin-left: -120px;
+}
+.panel{ position: absolute;
+background-color: lightgoldenrodyellow;
+border: 8px solid burlywood;
+box-shadow: 7px 5px 15px 3px rgba(0, 0,0,0.9);
+z-index: 1;
+}
+
+/* Path: src\components\header.css */
+.header-text {
+    font-size: 30px;
+    font-weight: bold;
+    width: 200px;
+    position: absolute;
+    left: 50%;
+    margin:0;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
