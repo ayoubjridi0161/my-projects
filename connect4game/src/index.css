@@ -1,5 +1,11 @@
+:root{
+  --Body-background-color:#D4ADFC;
+  --gameboard-background-color:#5C469C;
+  --gameboard-border-color:#1D267D;
+
+}
 body {
-background-color: cornflowerblue;
+background-color: var(--Body-background-color);
 font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .containerapp{
@@ -26,7 +32,7 @@ code {
   position: absolute;
   left: 25%;
   top: 25%;
-  border: 8px solid burlywood;
+  border: 8px solid var(--gameboard-border-color);
 
   border-radius: 8%;
   padding: 20px;
@@ -34,7 +40,7 @@ code {
   grid-template-columns: repeat(4,1fr);
   height: 400px;
   width: 400px;
-  background-color: bisque;
+  background-color: var(--gameboard-background-color);
   
 }
 .noplayer{

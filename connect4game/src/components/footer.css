@@ -1,4 +1,6 @@
 .footer{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
     left: 48%;
     top: 630px;
     height: 80px;
@@ -9,14 +11,15 @@
     align-items: center;
 }
 .footer button{
-    width: 250px;
-    position: relative;
-    left: 65px;
-
-    margin-left: -125px;
+    color: white;
     height: 50px;
-    background-color: lightblue;
-    border:5px solid chocolate;
+    padding: 10px;
+    margin: 10px;
+    background-color: #0C134F;
+    border:5px solid var(--gameboard-border-color);
     font-weight: bold;
-    font-size: 30px;
+    font-size: 20px;
+}
+.footer button:hover{
+    background-color: chartreuse;
 }

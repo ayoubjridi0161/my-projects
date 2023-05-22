@@ -20,4 +20,12 @@ export const isWinner = (gameboard) => {
     return false;
     
 }
-
+export const comPlay = (gameboard) => {
+    let validMoves = [];
+    for(let i = 0; i < 16; i++) {
+        if(gameboard[i] === "noplayer") {
+            validMoves.push(i);
+        }
+    }
+    return validMoves[Math.floor(Math.random() * validMoves.length)];
+}

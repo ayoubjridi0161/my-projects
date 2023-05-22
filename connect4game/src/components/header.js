@@ -1,11 +1,12 @@
 import React from 'react'
 import './header.css'
 
-const Header = ({player}) => {
+const Header = ({message}) => {
+  
   return (
     <div className='panel header'>
         <div className='header-text'>
-            player {player} turn
+            {message}
         </div>
     </div>
   )
