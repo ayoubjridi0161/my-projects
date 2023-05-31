@@ -1,29 +1,41 @@
 import { useState,useEffect } from 'react'
 
 import './App.css'
+import Categories from './components/categories';
 
 function App() {
 
   const [results,setResults]=useState([]);
   useEffect(()=>{
-    fetch('http://localhost:3100/products')
+    fetch('http://localhost:3000/categories')
     .then(response=>response.json())
     .then(json=>{setResults(json)
     console.log(json)})
   },[]);
+  const renderCategories = () =>{
+    const categories=[];
+    results.map((result)=>{
+      categories.push(<Categories result={result}/>)
+    })
+    return categories;
+  }
   return (
     <>
-      <div className="App">
-        Hello Vite!
-        {
-          results.map((result)=> 
-          <div key={result.id}>
-            <h1 >{result.title}</h1> 
-            
-          </div>
-          )
-        }
-        </div>
+      <header>
+        My store
+      </header>
+      <section className='main-section'>
+        <nav className='navigation'>
+          {renderCategories()}
+          </nav>
+          <article className='main'>
+              main area
+          </article>
+      </section>
+      <footer>
+            footer
+      </footer>
+      
     </>
   )
 }

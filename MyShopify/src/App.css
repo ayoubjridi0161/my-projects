@@ -1,0 +1,48 @@
+:root{
+    --color-1:#E5D4ED; /*background-color*/
+    --color-2:#6D72C3; /*navigation color*/     
+    --color-3:#5941A9;  /*main section color*/
+    --color-4:#514F59;  
+    --color-5:#1D1128;
+}
+#root{
+    background-color: var(--color-1);
+}
+body{
+    
+    color: var(--color-5);
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+header{
+    
+    text-align: center;
+    font-size: 2rem;
+    padding: 1rem;
+}
+footer{
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 1rem;
+}
+.main-section{
+     display: flex;
+     
+}
+.main-section> nav{
+    background-color: var(--color-2);
+    flex: 0 0 20%;
+    padding-right: 1rem;
+    padding-left:0.5rem ;
+    font-size: 1.5rem;
+
+}
+.main{
+    background-color: var(--color-3);
+    flex: 0 0 80%;
+    padding-left:0.5rem ;
+}
+ 
