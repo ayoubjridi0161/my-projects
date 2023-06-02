@@ -2,22 +2,33 @@ import { useState,useEffect } from 'react'
 
 import './App.css'
 import Categories from './components/categories';
+import {fetcher} from './components/fetcher.js';
 
 function App() {
 
-  const [results,setResults]=useState([]);
+  const [categories,setcategories]=useState([]);
+  const [products,setproducts] = useState([]);
+
   useEffect(()=>{
-    fetch('http://localhost:3000/categories')
-    .then(response=>response.json())
-    .then(json=>{setResults(json)
-    console.log(json)})
+    fetcher('categories',setcategories);
   },[]);
+  
+  const handleProductsclick = id =>{
+    
+      fetcher('products?catId='+id, setproducts);
+  }
   const renderCategories = () =>{
-    const categories=[];
-    results.map((result)=>{
-      categories.push(<Categories result={result}/>)
+    const category=[];
+    categories.map((result)=>{
+      category.push(<Categories id={result.id} title={result.title} event={handleProductsclick} />)
     })
-    return categories;
+    return category;
+  }
+  const renderProducts= () =>{
+    return( 
+    products.map((p) =>
+      <div >{p.title}</div>
+     ));
   }
   return (
     <>
@@ -25,12 +36,12 @@ function App() {
         My store
       </header>
       <section className='main-section'>
-        <nav className='navigation'>
-          {renderCategories()}
+          <nav className='navigation'>
+            { renderCategories()}
           </nav>
           <article className='main'>
-              main area
-          </article>
+            {products && renderProducts()}
+              </article>
       </section>
       <footer>
             footer

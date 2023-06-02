@@ -45,4 +45,11 @@ footer{
     flex: 0 0 80%;
     padding-left:0.5rem ;
 }
+
+.product:hover{
+    
+    transform: translateX(2rem);
+    transition: 0.4s ease;
+    
+}
  
