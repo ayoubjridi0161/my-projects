@@ -3,11 +3,129 @@
         {"id":1,"title":"fridges"},
         {"id":2,"title":"kettles"},
         {"id":3,"title":"televisions"}        
-    ],
-    "products" :[
-        {"id":11,"catId":1,"title":"Beko White Fridge Freezer"},
-        {"id":12,"catId":1,"title":"Whirpool White Fridge Freezer"},
-        {"id":13,"catId":2,"title":"Blue Kettle"}
-    
+    ] ,
+    "products" :
+    [
+        {
+            "id": 1,
+            "image": "ph-ref-rs5000-familyhub-rs64t5f01b4-tc-frontblack-244067168.avif",
+            "catId": 1,
+            "title": "Refrigerator",
+            "productCode": "FRIDGE001",
+            "price": 699.99,
+            "sku": "FR123456",
+            "description": "high-quality refrigerator for all your cooling needs.",
+            "specs": {
+              "dimensions": {
+                "height": "180 cm",
+                "width": "80 cm",
+                "depth": "70 cm"
+              },
+              "capacity": "400 liters"
+            },
+            "features": ["Energy efficient", "Adjustable shelves", "Frost-free"],
+            "stock": 10
+        },
+        {
+            "id": 2,
+            "image":"81ijfSTv9jL.jpg",
+            "catId": 1,
+            "title": "Mini Fridge",
+            "productCode": "FRIDGE002",
+            "price": 149.99,
+            "sku": "FR789012",
+            "description": "A compact and portable fridge, perfect for small spaces.",
+            "specs": {
+              "dimensions": {
+                "height": "50 cm",
+                "width": "40 cm",
+                "depth": "45 cm"
+              },
+              "capacity": "50 liters"
+            },
+            "features": ["Silent operation", "Removable shelves", "Reversible door"],
+            "stock": 5
+        },
+        {
+            "id": 3,
+            "image":"Smart Cordless Electric Kettle with LED Display.jpg",
+            "catId": 2,
+            "title": "Electric Kettle",
+            "productCode": "KETTLE001",
+            "price": 39.99,
+            "sku": "KT345678",
+            "description": "A fast-boiling electric kettle with auto shut-off.",
+            "specs": {
+              "dimensions": {
+                "height": "25 cm",
+                "width": "20 cm",
+                "depth": "15 cm"
+              },
+              "capacity": "1.7 liters"
+            },
+            "features": ["Boil-dry protection", "360-degree swivel base", "Cordless"],
+            "stock": 8
+        },
+        {
+            "id": 4,
+            "image":"GUEST_48a0aec9-8c31-4a6e-aba2-664cec13cfe9.jpg",
+            "catId": 2,
+            "title": "Stovetop Kettle",
+            "productCode": "KETTLE002",
+            "price": 29.99,
+            "sku": "KT901234",
+            "description": "A classic stovetop kettle for a traditional tea experience.",
+            "specs": {
+              "dimensions": {
+                "height": "20 cm",
+                "width": "15 cm",
+                "depth": "10 cm"
+              },
+              "capacity": "1.5 liters"
+            },
+            "features": ["Whistling spout", "Heat-resistant handle", "Suitable for all stovetops"],
+            "stock": 3
+        },
+        {
+                "id": 5,
+                "image":"ae-fhd-t5300-ua40t5300auxzn-frontblack-231892019.avif",
+                "catId": 3,
+                "title": "Smart TV",
+                "productCode": "TV001",
+                "price": 799.99,
+                "sku": "TV123456",
+                "description": "A feature-rich smart TV with stunning picture quality.",
+                "specs": {
+                  "dimensions": {
+                    "height": "100 cm",
+                    "width": "150 cm",
+                    "depth": "5 cm"
+                  },
+                  "capacity": null
+                },
+                "features": ["4K Ultra HD", "Smart functionality", "Built-in streaming apps"],
+                "stock": 7
+              },
+              {
+                "id": 6,
+                "image":"samsung-65-qled-8k-smart-tv-q800t.webp",
+                "catId": 3,
+                "title": "LED TV",
+                "productCode": "TV002",
+                "price": 399.99,
+                "sku": "TV789012",
+                "description": "A budget-friendly LED TV with good picture quality.",
+                "specs": {
+                  "dimensions": {
+                    "height": "80 cm",
+                    "width": "120 cm",
+                    "depth": "10 cm"
+                  },
+                  "capacity": null
+                },
+                "features": ["Full HD", "Slim design", "Multiple HDMI ports"],
+                "stock": 12
+              }
+
     ]
 }

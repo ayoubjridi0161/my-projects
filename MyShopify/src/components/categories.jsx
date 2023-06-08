@@ -1,9 +1,9 @@
 import React from 'react';
 import '../app.css';
 
-const Categories = ({id , title, event}) => {
+const Categories = ({id , title, event , Key}) => {
   return (
-    <div key={id} id={id} onClick={()=>event(id)} className="product" >{title}</div>
+    <li key={Key} id={id} onClick={()=>event(id)} className="product" >{title}</li>
   );
 };
 

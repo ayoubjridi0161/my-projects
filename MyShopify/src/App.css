@@ -31,15 +31,19 @@ footer{
 .main-section{
      display: flex;
      
-}
-.main-section> nav{
-    background-color: var(--color-2);
-    flex: 0 0 20%;
-    padding-right: 1rem;
-    padding-left:0.5rem ;
-    font-size: 1.5rem;
-
-}
+     margin: 0 auto;
+     box-sizing: border-box;
+     overflow: hidden;
+        width: 75%;
+    }
+    .main-section> nav{
+        background-color: var(--color-2);
+        flex: 0 0 20%;
+        padding-right: 1rem;
+        padding-left:0.5rem ;
+        font-size: 1.5rem;
+    
+    }
 .main{
     background-color: var(--color-3);
     flex: 0 0 80%;
@@ -52,4 +56,13 @@ footer{
     transition: 0.4s ease;
     
 }
- 
+nav > ul{
+    list-style-type: none;
+    padding: 0;
+    cursor:pointer ;
+}
+nav ul li{
+    padding-bottom: 5px;
+
+}
+
