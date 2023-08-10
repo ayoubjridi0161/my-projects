@@ -1,19 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './category_product.css'
-import { Link,useNavigate } from 'react-router-dom';
+import { Link,useLocation,useNavigate } from 'react-router-dom';
+import { Mycontext } from '../context/context';
 
 
 const Category_product = ({title,specs,features,price,stock,Image,sku,id})=>{
     const navigate = useNavigate();
+    const location = useLocation();
+    const newPath = `/products/${id}`
+    const basketPath = `/basket`
+    const cartContext = useContext(Mycontext);
+    const { addProduct } = cartContext;
+    const payload = {id,title,price}
     return(
-        <article className='big-container'>
-            
-            <div className='Category-product-title'>
-                <Link to={`products/${id}`}> {title } {sku}</Link>
+        
+            <div className='big-container'>       
+                 <div className='Category-product-title'>
+                <Link to={newPath}> {title } {sku}</Link>
             </div>
             <figure>
             <div className='Category-product-img'>
-                <img src={`./src/assets/${Image}`} alt={Image}/>
+                <img src={`./assets/${Image}`} alt={Image}/>
                 </div>
             </figure>
             
@@ -49,12 +56,13 @@ const Category_product = ({title,specs,features,price,stock,Image,sku,id})=>{
                 <label >stock : {stock}</label>
                 </div>
                 <div className='Category-product-action'>
-                <button id='view' onClick={()=>{navigate(`products/${id}`)}}> view product </button>
-                <button id='basket' onClick={()=>{navigate(`basket`)}}> Add to basket </button>
+                <button id='view' onClick={()=>{navigate(newPath)}}> view product </button>
+                <button id='basket' onClick={()=>{addProduct(payload)}}> Add to basket </button>
                 </div>
             </aside>
 
-        </article>
+            </div>
+
     )
 }
 export default Category_product

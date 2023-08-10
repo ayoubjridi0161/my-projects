@@ -1,69 +1,65 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { returnDetails } from "./fetcher";
+import Category_product from "./category_product";
+
+import './category_product.css'
 const ProductDetail = ()=>{
-    const params = useParams();
-    const [details,setDetails] = React.useState({errorMessage : '', data:[]});
+    const {ProductId} = useParams();
+    const navigate= useNavigate();  
+    const [product, setProduct] = React.useState({errorMessage: '' , data : {} });
+    const basketPath = `/basket`
     React.useEffect(()=>{
-        const fetchData= async ()=>{
-            const response = await returnDetails(params.ProductId);
-            setDetails(response);
+        const fetchProduct = async ()=>{
+            const response = await returnDetails(ProductId);
+            setProduct(response);
+            console.log(response);
         }
-        fetchData();
-    },[
-    ]);
+        fetchProduct();
+    },[]);
     
     return(
         <article className='big-container'>
             
             <div className='Category-product-title'>
-                {details.data.title } {details.data.sku}
+            {product.data.title  } {product.data.sku}
             </div>
             <figure>
             <div className='Category-product-img'>
-                <img src={`./src/assets/${details.data.Image}`} alt={details.data.Image}/>
+                <img src={`./src/assets/${product.data.Image}`} alt={product.data.Image}/>
                 </div>
             </figure>
             
-            <aside >
-                <div className='Category-product-info-dimensions'>
-                <h3>Dimensions</h3>
-                <label>
-                    {details.data.specs.dimensions.width + " * " + details.data.specs.dimensions.height + " * " + details.data.specs.dimensions.depth}
-                </label>
-                </div>
-                {details.data.specs.capacity &&
-                <div className='Category-product-info-capacity'>
-                <h3>capacity</h3>
-                <label>
-                    {details.data.specs.capacity}
-                </label>
-                </div>
-                }
-                <div  className='Category-product-features'>
+            <div  className='Category-product-features'>
                 <h3>Features</h3>
                 <ul>
-                    {details.data.features?.map((f,i)=>
+                    {product.data.features?.map((f,i)=>
                         <li key={`feature${i}`}>{f}</li>
                     )}
                 </ul>
-                </div>
-            </aside>
+            </div>
+
             <aside className='Category-product-finance'>
                 <div className='Category-product-price'>
-                $ {details.data.price}
+                $ {product.data.price}
                 </div>
                 <div className='Category-product-stock'>
-                <label >stock : {details.data.stock}</label>
+                <label >stock : {product.data.stock}</label>
                 </div>
                 <div className='Category-product-action'>
-                
-                <button id='basket' onClick={()=>{navigate(`basket`)}}> Add to basket </button>
+               
+                <button id='basket' onClick={()=>{
+                    
+                    }}> Add to basket </button>
                 </div>
             </aside>
+            
+            <div className='Category-product-description'>
+                <p>{product.data.description}</p>
+            </div>
+            
 
         </article>
     )
-    
 }
 export default ProductDetail;

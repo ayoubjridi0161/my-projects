@@ -2,9 +2,17 @@ import { useState,useEffect } from 'react'
 
 import './App.css'
 import Categories from './components/categories';
-import {fetcher,returnCategories,returnProducts} from './components/fetcher.js';
-import Category_product from './components/category_product';
+import {returnCategories} from './components/fetcher.js';
 
+import {
+  BrowserRouter,
+  Route,
+  Routes
+} from "react-router-dom";
+import ProductDetail from './components/productDetail.jsx';
+import { Basket, Checkout } from './components/buying.jsx';
+import Layout from './components/Layout.jsx';
+import Home from './components/Home.jsx';
 
 
 function App() {
@@ -20,43 +28,30 @@ function App() {
       fetchData();
   },[]);
   
-  const handleProductsclick = id =>{
+  /*const handleProductsclick = id =>{
       const fetchData = async ()=>{
         const response = await returnProducts(id);
         setproducts(response);
       }
       fetchData();
-  }
-  const renderCategories = () =>{
-    const category=[];
-    categories.data.map((result,i)=>{
-      category.push(<Categories  id={result.id} Key={i} title={result.title} event={handleProductsclick} />)
-    });
-    return category;
-  }
-  const renderProducts= () =>{
-    return    products.data.map(p => <Category_product {...p}>{p.title}</Category_product>)
-  }
+  }*/
+
+  
   return (
     <>
-      <header>
-        My store
-      </header>
-      
-      <section className='main-section'>
-          <nav className='navigation'>
-            <ul >
-            { renderCategories()}
-            </ul>
-          </nav>
-          <article className='main'>
-            {products && renderProducts()}
-              </article>
-      </section>
-      <footer>
-            footer
-      </footer>
-      
+      <BrowserRouter>
+   <Routes>
+    <Route 
+      path='/' 
+      element={<Layout categories={categories}/>} >
+          <Route index element={<Home/>}/>
+          <Route path='products/:ProductId' element={<ProductDetail/>}/>
+          <Route path='basket' element={<Basket/>}/>
+          <Route path='checkout' element={<Checkout/>}/>
+          <Route path = 'categories/:categoryId' element={<Categories/>}/>
+    </Route>
+    </Routes>
+    </BrowserRouter>
     </>
   )
 }

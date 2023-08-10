@@ -8,6 +8,19 @@
 #root{
     background-color: var(--color-1);
 }
+.main-categories{
+    
+    padding: 1rem;
+    background-color: var(--color-2);
+    color: var(--color-1);
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.4s ease;
+    margin: 0 auto;
+    
+}
 body{
     
     color: var(--color-5);
@@ -30,11 +43,10 @@ footer{
 }
 .main-section{
      display: flex;
-     
      margin: 0 auto;
      box-sizing: border-box;
      overflow: hidden;
-        width: 75%;
+    width: 75%;
     }
     .main-section> nav{
         background-color: var(--color-2);
