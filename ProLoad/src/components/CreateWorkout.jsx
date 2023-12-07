@@ -1,62 +1,84 @@
 import React from 'react'
-
+import Day2 from './Day2';
 const CreateWorkout = () => {
-    const [DaysPerCycle, setDaysPerCycle] = React.useState(1);
-    const [workoutName, setWorkoutName] = React.useState('');
+    const [Cycle, setCycle] = React.useState(0);
+    const [workoutName, setWorkoutName] = React.useState("");
     // eslint-disable-next-line no-undef, no-unused-vars
-    const [existingWorkouts, setExistingWorkouts] = React.useState({ Name : false , DaysPerCycle : false});
-const handleFormSubmit = (e) => {
-        e.preventDefault()
-        console.log(workoutName)
+    const myName = React.useRef(null)
+    const myCycle = React.useRef(null)
+    
+    const handleNameChange= () => {
+            myName.current.focus()
+        }
+    const handleCycleChange= () => {
+            myCycle.current.focus()
+
+    }
+    const handleName = () => {
+        
+        setWorkoutName(myName.current.value)
         // eslint-disable-next-line no-undef
-        let arr = {...existingWorkouts}
-        arr.Name = true
-        setExistingWorkouts(arr)}
-const handleCycleSubmit = (e) => {
-        e.preventDefault()
-        console.log(DaysPerCycle)
-        // eslint-disable-next-line no-undef
-        let arr = {...existingWorkouts}
-        arr.DaysPerCycle = true
-        setExistingWorkouts(arr)}
-const RenderName = () => 
+    }
+        
+        
+    const handleCycle = () => {
+        setCycle(myCycle.current.value)
+    }
+
+
+    const RenderName = () => 
 {return (
         <div>
-    { existingWorkouts.Name ? <label>workoutName:{workoutName}</label> :
-    <form onSubmit={handleFormSubmit}>
-      
-      <label>
-        Workout Name:
-        <input
-          type="text"
-          value={workoutName}
-          onChange={(e) => setWorkoutName(e.target.value)}
-        />
-        <input type="submit" value="add" />
-        </label>
-        </form>
-    }
+    { workoutName != ""  ? <label >workoutName:{workoutName}</label> :
+    <form onSubmit={handleName}>
+    <label>
+      Workout Name:
+      <input
+        type="text"
+        ref={myName}
+        onChange={handleNameChange}
+      />
+      <input type="submit" value="add" />
+      </label>
+      </form>}
     </div>)} 
-const RenderDaysPerCycle = () =>
+    const RenderCycle = () =>
     {return (
-        <div>{ existingWorkouts.DaysPerCycle ? <label>DaysPerCycle:{DaysPerCycle}</label> : 
-    <form onSubmit={handleCycleSubmit}>
+        <div>{ Cycle!=0 ? <label>DayssPerCycle:{Cycle}</label> : 
+    <form onSubmit={handleCycle}>
         <label>
         Days per cycle:
-        <input type="number" value={DaysPerCycle} onChange={(e) => setDaysPerCycle(e.target.value)}  />
+        <input type="number" ref={myCycle} onChange={handleCycleChange}  />
         </label>
         <input type="submit" value="add" />
         </form>
 }
     </div>
-    )} 
-   
-return (
-    <section>
-    <RenderName/>
-    <RenderDaysPerCycle/>
-    </section>
-    )
-}
+        )}
 
+   const renderDays = () => {
+        if(Cycle === 0){
+            return <></>
+        }else{
+            let arr = []
+            for(let i = 0 ; i < Cycle ; i++){
+                arr.push(<Day2 key={i} index={i}/>)
+            }
+            return arr
+        
+        }
+    
+}
+return (
+    <>
+    <section>
+     <RenderName/> 
+     <RenderCycle/>
+    {renderDays()}
+
+    </section>
+    </>
+    )
+
+}
 export default CreateWorkout
